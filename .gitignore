@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
+venv/
+ENV/
+
+# Node
+node_modules/
+dist/
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# OS junk
+Thumbs.db
+Desktop.ini
+
+# Others
+*.swp
+*.swo
+.idea/
