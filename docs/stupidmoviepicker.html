@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stupidMoviePicker – Stupid Simple Movie Picker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        header { padding: 3rem 0 1rem 0; text-align: center; }
+        .title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc; }
+        .desc { font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem; color: #cbd5e1; }
+        .badges { margin-bottom: 1rem; }
+        .badge { display: inline-block; background: #6366f1; color: #fff; border-radius: 50px; font-size: 0.85rem; font-weight: 600; padding: 0.2rem 0.8rem; margin-right: 0.5rem; }
+        .section { margin-bottom: 2.5rem; }
+        .section-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.7rem; color: #a5b4fc; }
+        ul.features { margin: 1.2rem 0 0.5rem 1.2rem; font-size: 1rem; }
+        ul.features li { margin-bottom: 0.5em; }
+        .links { margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; }
+        .btn { display: inline-flex; align-items: center; padding: 0.6rem 1.2rem; border-radius: 0.375rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; background: #6366f1; color: #fff; }
+        .btn:hover { background: #4338ca; }
+        .btn-outline { background: none; border: 2px solid #6366f1; color: #6366f1; }
+        .btn-outline:hover { background: #6366f1; color: #fff; }
+        pre, code { background: #1e293b; color: #f8fafc; border-radius: 6px; padding: 0.2em 0.5em; font-size: 1em; }
+        pre { padding: 1em; overflow-x: auto; }
+        .footer { text-align: center; color: #64748b; font-size: 1rem; margin: 3rem 0 1rem 0; }
+        @media (max-width: 700px) { .container { max-width: 98vw; padding: 0 0.5rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="title"><i class="fas fa-film"></i> stupidMoviePicker</div>
+            <div class="desc">Paste YouTube movie links. Filter by genre. Click random. No auth, no accounts, just global movie picking. Docker support. Vibe coded, no PRs.</div>
+            <div class="badges">
+                <span class="badge">Flask</span>
+                <span class="badge">OMDb API</span>
+                <span class="badge">Docker</span>
+            </div>
+            <div class="links">
+                <a class="btn" href="https://github.com/dannycab/stupidmoviepicker" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </header>
+        <div class="section">
+            <div class="section-title">Features</div>
+            <ul class="features">
+                <li>🦑 Stupid Simple: No login, no accounts, no setup</li>
+                <li>🎬 Add movies by YouTube URL or search</li>
+                <li>🎲 Random movie picker</li>
+                <li>🎭 Genre filtering and detail pages</li>
+                <li>🗂️ OMDb metadata (year, rating, poster, etc)</li>
+                <li>🛠️ API endpoints for everything</li>
+                <li>🐳 Docker support</li>
+            </ul>
+        </div>
+        <div class="section">
+            <div class="section-title">Quick Start</div>
+            <pre><code>git clone https://github.com/dannycab/stupidmoviepicker.git
+cd stupidmoviepicker
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+# Open your browser to http://localhost:5000</code></pre>
+        </div>
+        <div class="section">
+            <div class="section-title">Docker Deployment</div>
+            <pre><code>docker-compose up
+# Open your browser to http://localhost:5000</code></pre>
+        </div>
+        <div class="section">
+            <div class="section-title">Tech Stack</div>
+            <ul class="features">
+                <li><b>Backend:</b> Flask (Python web framework)</li>
+                <li><b>Metadata:</b> OMDb API</li>
+                <li><b>Frontend:</b> Jinja2 templates</li>
+                <li><b>Database:</b> SQLite</li>
+                <li><b>Deployment:</b> Docker</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <span>Made with <span style="color:#f97316;">❤️</span> in Michigan &middot; Vibe coded, no PRs, no roadmap, just code.</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StupidRSS – Fast & Minimalistic RSS Reader</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        :root {
+            --color-primary: #3b82f6;
+            --color-primary-dark: #2563eb;
+            --color-accent: #f97316;
+            --color-bg: #f8fafc;
+            --color-bg-dark: #0f172a;
+            --color-text: #1e293b;
+            --color-text-dark: #e2e8f0;
+            --color-card: #ffffff;
+            --color-card-dark: #1e293b;
+            --color-border: #e2e8f0;
+            --color-border-dark: #334155;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 3rem 0 1rem 0;
+            text-align: center;
+        }
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .desc {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: var(--color-primary-dark);
+        }
+        .badges {
+            margin-bottom: 1rem;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.2rem 0.8rem;
+            margin-right: 0.5rem;
+        }
+        ul.features {
+            margin: 1.2rem 0 0.5rem 1.2rem;
+            font-size: 1rem;
+        }
+        ul.features li {
+            margin-bottom: 0.5em;
+        }
+        .links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: var(--color-primary);
+            color: #fff;
+        }
+        .btn:hover {
+            background: var(--color-primary-dark);
+        }
+        .btn-outline {
+            background: none;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: #fff;
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--color-card-dark);
+            color: var(--color-text-dark);
+            border: 2px solid var(--color-border-dark);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.light .theme-toggle {
+            background: var(--color-card);
+            color: var(--color-text);
+            border: 2px solid var(--color-border);
+        }
+        @media (max-width: 700px) {
+            .container { max-width: 98vw; padding: 0 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="title"><i class="fas fa-rss"></i> StupidRSS</div>
+            <div class="desc">A fast, minimalistic RSS reader webapp built with FastAPI and Tailwind CSS. Async, mobile-friendly, and vibe coded. No PRs.</div>
+            <div class="badges">
+                <span class="badge">FastAPI</span>
+                <span class="badge">Tailwind CSS</span>
+                <span class="badge">SQLite</span>
+            </div>
+            <div class="links">
+                <a class="btn" href="https://github.com/dannycab/stupidrss" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </header>
+        <div class="section">
+            <div class="section-title">Features</div>
+            <ul class="features">
+                <li>🚀 Fast: Built with FastAPI for high performance</li>
+                <li>🎨 Modern UI: Clean, responsive design with Tailwind CSS</li>
+                <li>📱 Mobile-friendly: Works great on all devices</li>
+                <li>🔄 Real-time updates: Async RSS parsing and fetching</li>
+                <li>💾 SQLite database: Lightweight, zero-config storage</li>
+                <li>🔗 Easy feed management: Add, remove, and refresh feeds</li>
+                <li>🧹 Smart Content Cleaning: Strips HTML, preserves formatting</li>
+                <li>📺 YouTube-Optimized: Removes spam/duplicates from video feeds</li>
+                <li>🎯 Enhanced UX: Streamlined buttons, improved navigation</li>
+                <li>🔍 Filter Support: Built-in article filtering and search</li>
+                <li>📂 Category Organization: Organize feeds by categories</li>
+                <li>🔖 Advanced Filtering: Filter by All, Unread, Saved</li>
+                <li>🧭 Intuitive Navigation: Sidebar, clean header</li>
+            </ul>
+        </div>
+        <div class="section">
+            <div class="section-title">Quick Start</div>
+            <pre><code>git clone https://github.com/dannycab/stupidrss.git
+cd stupidrss
+pip install -r requirements.txt
+python main.py
+# Open your browser to http://localhost:8000</code></pre>
+        </div>
+        <div class="section">
+            <div class="section-title">Docker Deployment</div>
+            <pre><code>git clone https://github.com/dannycab/stupidrss.git
+cd stupidrss
+cp .env.example .env
+docker-compose up -d
+# Open your browser to http://localhost:8000</code></pre>
+        </div>
+        <div class="section">
+            <div class="section-title">Tech Stack</div>
+            <ul class="features">
+                <li><b>Backend:</b> FastAPI (Python async web framework)</li>
+                <li><b>Frontend:</b> Jinja2 templates + Tailwind CSS</li>
+                <li><b>Database:</b> SQLite with SQLAlchemy ORM</li>
+                <li><b>RSS Parsing:</b> feedparser library</li>
+                <li><b>HTTP Client:</b> httpx for async requests</li>
+            </ul>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <script>
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            // Check for saved theme preference or use dark by default
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light');
+                const isLight = document.body.classList.contains('light');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                themeIcon.classList.toggle('fa-moon', !isLight);
+                themeIcon.classList.toggle('fa-sun', isLight);
+            });
+        </script>
+        <div class="section">
+            <div class="section-title">Not Yet Implemented</div>
+            <ul class="features">
+                <li>Feed import/export (not implemented)</li>
+                <li>OPML support (not implemented)</li>
+                <li>Push notifications (planned, not implemented)</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <span>Made with <span style="color:#f97316;">❤️</span> in Michigan &middot; Vibe coded, no PRs, no roadmap, just code.</span>
+        </div>
+    </div>
+</body>
+</html>

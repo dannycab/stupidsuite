@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stupidmarkdown – Minimal Markdown Editor</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:400,700&display=swap">
+  <style>
+    :root {
+      --color-primary: #6366f1;
+      --color-primary-dark: #4338ca;
+      --color-accent: #f97316;
+      --color-bg: #f8fafc;
+      --color-bg-dark: #18181b;
+      --color-text: #18181b;
+      --color-text-dark: #e2e8f0;
+      --color-card: #fff;
+      --color-card-dark: #23272e;
+      --color-border: #e2e8f0;
+      --color-border-dark: #334155;
+    }
+    html, body {
+      background: var(--color-bg-dark);
+      color: var(--color-text-dark);
+      font-family: 'JetBrains Mono', monospace;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light {
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+    .container {
+      max-width: 700px;
+      margin: 5vh auto 0 auto;
+      background: var(--color-card-dark);
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.08);
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light .container {
+      background: var(--color-card);
+      color: var(--color-text);
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.2em;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    .subtitle {
+      color: #6366f1;
+      font-size: 1.1rem;
+      margin-bottom: 2em;
+      font-weight: 500;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5em;
+    }
+    ul {
+      margin: 1.5em 0 1.5em 1.5em;
+      font-size: 1.05rem;
+    }
+    li {
+      margin-bottom: 0.7em;
+    }
+    a {
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #18181b;
+      text-decoration: underline;
+    }
+    .github {
+      margin-top: 2.5em;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .github svg {
+      width: 1.3em;
+      height: 1.3em;
+      vertical-align: middle;
+      fill: #6366f1;
+    }
+    pre, code {
+      background: #f1f5f9;
+      color: #334155;
+      border-radius: 6px;
+      padding: 0.2em 0.5em;
+      font-size: 1em;
+    }
+    pre {
+      padding: 1em;
+      overflow-x: auto;
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--color-card-dark);
+      color: var(--color-text-dark);
+      border: 2px solid var(--color-border-dark);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 100;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light .theme-toggle {
+      background: var(--color-card);
+      color: var(--color-text);
+      border: 2px solid var(--color-border);
+    }
+    @media (max-width: 700px) {
+      .container {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>stupidmarkdown</h1>
+    <div class="subtitle">A minimal, cross-platform Markdown editor for vibe coders</div>
+    <p>
+      <b>stupidmarkdown</b> is a desktop Markdown editor built with Tauri and Svelte. It features a modern, minimal UI, live preview, syntax highlighting, system file access, export to PDF/TeX/Typst, and a keybinding-driven workflow. No plugins, no distractions—just Markdown.
+    </p>
+    <ul>
+      <li>Modern, fixed-width, light/dark mode UI</li>
+      <li>Live Markdown preview with syntax highlighting</li>
+      <li>System file access (open/save)</li>
+      <li>Export to PDF, TeX, and Typst</li>
+      <li>Keybinding-driven workflow</li>
+      <li>No plugins or extensions</li>
+      <li>Vibe-coding repo: no pull requests, issues welcome</li>
+    </ul>
+    <div class="section-title" style="font-weight:600;margin-top:2em;">Quick Start</div>
+    <pre><code>git clone https://github.com/dannycab/stupidmarkdown.git
+cd stupidmarkdown
+npm install --legacy-peer-deps
+npm run tauri dev
+</code></pre>
+    <div class="section-title" style="font-weight:600;margin-top:2em;">Tech Stack</div>
+    <ul>
+      <li><b>Frontend:</b> Svelte (Vite)</li>
+      <li><b>Backend:</b> Tauri (Rust)</li>
+    </ul>
+    <div class="github">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+      <a href="https://github.com/dannycab/stupidmarkdown" target="_blank">View on GitHub</a>
+    </div>
+    <div class="footer" style="margin-top:2em;">
+      Made with <span style="color:#f97316;">❤️</span> in Michigan &middot; Vibe coded, no PRs, no roadmap, just code.
+    </div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+  </button>
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    // Check for saved theme preference or use dark by default
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      themeIcon.classList.toggle('fa-moon', !isLight);
+      themeIcon.classList.toggle('fa-sun', isLight);
+    });
+  </script>
+  <div class="section-title" style="font-weight:600;margin-top:2em;">Not Yet Implemented</div>
+  <ul>
+    <li>Syntax highlighting (not implemented)</li>
+    <li>Export to PDF/TeX/Typst (not implemented)</li>
+    <li>Keybinding workflow (not implemented)</li>
+    <li>Plugin system (not planned)</li>
+  </ul>
+</body>
+</html>
