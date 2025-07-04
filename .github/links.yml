@@ -1,0 +1,4 @@
+# Links to display in the GitHub repo sidebar
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-metadata-files#about-the-links-file
+- name: Project Website
+  url: https://dannycaballero.info/stupidsuite/
